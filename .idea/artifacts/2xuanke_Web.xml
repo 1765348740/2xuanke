@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="2xuanke:Web">
+    <output-path>$PROJECT_DIR$/classes/artifacts/2xuanke_Web</output-path>
+    <root id="archive" name="2xuanke_Web.war">
+      <element id="artifact" artifact-name="2xuanke:Web exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="aopalliance-1.0" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

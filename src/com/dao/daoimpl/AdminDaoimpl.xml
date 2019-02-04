@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.AdminDao">
+
+
+    <select id="selectAdmin" parameterType="String" resultType="com.entity.Admin">
+        SELECT * FROM t_admin WHERE userName=#{0} AND userPw=#{1}
+   </select>
+    <select id="selectKeCheng" resultType="com.entity.KeCheng">
+        SELECT * FROM t_kecheng
+    </select>
+    <select id="selectAdmin2" resultType="com.entity.Admin">
+         SELECT * FROM t_admin
+    </select>
+    <delete id="deleteKeCheng" parameterType="int">
+       DELETE  FROM t_kecheng WHERE id=#{0}
+    </delete>
+    <delete id="deleteKeBiao" parameterType="int">
+        DELETE  FROM t_kebiao WHERE id=#{0}
+    </delete>
+    <delete id="deleteAdmin" parameterType="int">
+          DELETE  FROM t_admin WHERE userId=#{0}
+    </delete>
+    <update id="updatePwd" parameterType="String" >
+        UPDATE t_admin SET userpw=#{0} WHERE userName=#{1}
+    </update>
+
+    <insert id="addKeCheng" parameterType="com.entity.KeCheng" >
+        INSERT	t_kecheng(bianhao,mingcheng,keshi) VALUE(#{BianHao},#{MingCheng},#{KeShi})
+    </insert>
+    <insert id="addKeBiao" parameterType="com.entity.KeBiao">
+       INSERT	t_kebiao(kecheng_id,shijian,jieci,jiaoshi,laoshi_id) VALUE(#{kecheng_id},#{shijian},#{jieci},#{jiaoshi},#{laoshi_id})
+    </insert>
+    <insert id="addAdmin" parameterType="com.entity.Admin">
+          INSERT	t_admin(userName,userPw) VALUE(#{UserName},#{UserPw})
+    </insert>
+</mapper>
